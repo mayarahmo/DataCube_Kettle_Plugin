@@ -1,8 +1,14 @@
 # Data-Cube-Plugin-Kettle-Transformation
-Datacube Plugin for writting a RDF Turtle file using DataCube Ontology from a CSV file
+Datacube Plugin to obtain a RDF Turtle DataCube Ontology Vocabulary file from a CSV (Comma Separated File).
+
+DataCube Ontology: https://www.w3.org/TR/vocab-data-cube/
+
 ----
-TO RUN THE TRANSFORM with Kettle execute the file Spoon.bat inside the folder or import de .ktr file outside to your Kettle Pentaho.
+RUN THE TRANSFORMATION
+Download data-integration4.1 (Kettle modified) and DataCubeTransformation.ktr execute spoon.bat inside the folder e import the file
 ----	
 
-TO OPEN THE SOURCE CODE of the transformation, change TRANSFORMATION SOURCE CODE and export see README_SOURCE.md
-
+---
+GET/EDIT THE SOURCE CODE 
+TO OPEN the source code to see and edit it, download the two java projects inside ./Source_Code/Java Source Projects/ into your Eclipse workspace. README_SOURCE.md
+---
