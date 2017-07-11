@@ -10,5 +10,5 @@ Download data-integration4.1 (Kettle modified) and DataCubeTransformation.ktr ex
 
 ---
 GET/EDIT THE SOURCE CODE 
-TO OPEN the source code to see and edit it, download the two java projects inside ./Source_Code/Java Source Projects/ into your Eclipse workspace. README_SOURCE.md
+Download the two java projects inside ./Source_Code/Java Source Projects/ into your Eclipse workspace. README_SOURCE.md
 ---
