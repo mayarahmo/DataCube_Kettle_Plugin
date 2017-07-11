@@ -6,7 +6,7 @@ DataCube Ontology: https://www.w3.org/TR/vocab-data-cube/
 ----
 RUN THE TRANSFORMATION
 Download data-integration4.1 (Kettle with DataCubeTransformation plugin) execute spoon.bat inside the folder.
-To see a example download DataCubeTransformation.ktr and example.csv. Import the transformation on Kettle and on step "CSV file input" update the CSV file path.  
+To see an example download DataCubeTransformation.ktr and example.csv. Import the transformation on Kettle and on step "CSV file input" update the CSV file path.  
 ----	
 
 ---
