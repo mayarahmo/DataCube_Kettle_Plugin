@@ -5,7 +5,7 @@ DataCube Ontology: https://www.w3.org/TR/vocab-data-cube/
 
 ----
 RUN THE TRANSFORMATION
-Download data-integration4.1 (Kettle modified) and DataCubeTransformation.ktr execute spoon.bat inside the folder e import the file
+Download data-integration4.1 (Kettle) and DataCubeTransformation.ktr execute spoon.bat inside the folder e import the file
 ----	
 
 ---
