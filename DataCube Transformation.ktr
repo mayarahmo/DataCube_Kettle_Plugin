@@ -79,7 +79,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <filename>C:\Users\Mayara\Desktop\Data Cube\example.csv</filename>
+    <filename>C:\Users\Mayara.MAYA-PC\OneDrive\Pen drive\Data Cube\example.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -99,7 +99,7 @@
         <currency>R$</currency>
         <decimal>,</decimal>
         <group>.</group>
-        <length>7</length>
+        <length>20</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
@@ -143,7 +143,7 @@
         <currency>R$</currency>
         <decimal>,</decimal>
         <group>.</group>
-        <length>9</length>
+        <length>41</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
@@ -194,8 +194,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>211</xloc>
-      <yloc>120</yloc>
+      <xloc>204</xloc>
+      <yloc>25</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -412,8 +412,8 @@
   </entry>
 </map></DATA_ROOT_NODE>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>431</xloc>
-      <yloc>131</yloc>
+      <xloc>435</xloc>
+      <yloc>15</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -441,7 +441,7 @@
     <fileNameInField>N</fileNameInField>
     <fileNameField/>
     <file>
-      <name>C:\Users\Mayara\Desktop\Data Cube\file</name>
+      <name>C:\Users\Mayara.MAYA-PC\OneDrive\Pen drive\Data Cube\file</name>
       <is_command>N</is_command>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>txt</extention>
@@ -461,8 +461,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>607</xloc>
-      <yloc>138</yloc>
+      <xloc>629</xloc>
+      <yloc>19</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

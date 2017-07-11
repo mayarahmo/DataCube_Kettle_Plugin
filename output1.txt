@@ -1,0 +1,278 @@
+@base <http://example.cubeviz.org/datacube/>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@rdf: <http://www.w3.org/2000/01/rdf-schema#>.
+@dc: <http://purl.org/dc/elements/1.1/>.
+@skos: <http://www.w3.org/2004/02/skos/core#>.
+@obo: <http://www.w3.org/2002/07/owl#>.
+@sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#>.
+@sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#>.
+@prefix cube: <http://purl.org/linked-data/cube#>.
+@prefix ex: <http://meu.exemplo/datacube/>.
+@exProp: <http://meu.exemplo/datacube/properties/>.
+
+<> a owl:Ontology ;
+	rdfs:label "Example DataCube Knowledge Base" ;
+	dc:description "This knowledgebase contains one Data Structure Definition with one Data Set. This Data Set has a couple of Components and Observations." .
+
+#
+# Data Structure Definitions
+#
+
+ex:dsd a cube:DataStructureDefinition ;
+	rdfs:label "A Data Structure Definition"@en ;
+	rdfs:comment "Defines the structure of a DataSet or slice." ;
+	<www.exemplodeuridenome.com>,
+	<www.exemplodeuridecpf.com>,
+	<www.exemplodeuridegenero.com>,
+	<>,
+	<www.exemplodeurideidade.com>,
+	<http://www.w3.org/2001/XMLSchema#string> .
+
+#
+# Component Specifications
+#
+
+<www.exemplodeuridenome.com> a cube:ComponentSpecification ;
+	rdfs:label "Nome próprio" ;
+	cube:dimension exProp:nome.
+
+<www.exemplodeuridecpf.com> a cube:ComponentSpecification ;
+	rdfs:label "CPF de uma pessoa" ;
+	cube:dimension exProp:cpf.
+
+<www.exemplodeuridegenero.com> a cube:ComponentSpecification ;
+	rdfs:label "Gênero" ;
+	cube:dimension exProp:sexo.
+
+<http://www.w3.org/2001/XMLSchema#float> a cube:ComponentSpecification ;
+	rdfs:label "Component Specification of Unit" ;
+	cube:attribute exProp:unit .
+
+<www.ExemploDeURIDeIdade.com> a cube:ComponentSpecification ;
+	rdfs:label "Idade de uma pessoa" ;
+	cube:measure exProp:idade.
+
+#
+# Data Set
+#
+ex:dataset a cube:DataSet ;
+	rdfs:label "A DataSet"^^<http://www.w3.org/2001/XMLSchema#string> ;
+	rdfs:comment "Represents a collection of observations and conforming to some common dimensional structure." ;
+	cube:structure ex:dsd .
+
+#
+# Dimensions, Unit and Measure
+#
+exProp:nome a cube:DimensionProperty ;
+	rdfs:label "Nome próprio"@en .
+
+exProp:cpf a cube:DimensionProperty ;
+	rdfs:label "CPF de uma pessoa"@en .
+
+exProp:sexo a cube:DimensionProperty ;
+	rdfs:label "Gênero"@en .
+
+exProp: a cube:DimensionProperty ;
+	rdfs:label ""@en .
+
+exProp:unit a cube:AttributeProperty ;
+	rdfs:label "Unit" .
+
+exProp:idadea cube:MeasureProperty ;
+	rdfs:label "Idade de uma pessoa" .
+
+#
+# HIERARCHYS
+#
+
+ex: a ex: ;
+	obo:part_of ex:;
+	rdfs:label ""@en .
+
+#
+# Data Set 1
+#
+
+ex:obj0 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:nome "Gabriel"^^<http://www.w3.org/2000/01/rdf-schema#string> ;
+	exProp:cpf "xxx.xxx.xxx"^^<http://www.w3.org/2000/01/rdf-schema#string> ;
+	exProp:sexo "Masculino"^^<http://www.w3.org/2000/01/rdf-schema#string> ;
+	exProp:unit "Idade de uma população por nome, CPF e gênero" ;
+	exProp:idade "22"^^<http://www.w3.org/2000/01/rdf-schema#integer> ;
+	rdfs:label "" .
+
+ex:obj1 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:nome "Larissa"^^<http://www.w3.org/2000/01/rdf-schema#string> ;
+	exProp:cpf "xxx.xxx.xxx"^^<http://www.w3.org/2000/01/rdf-schema#string> ;
+	exProp:sexo "Feminino"^^<http://www.w3.org/2000/01/rdf-schema#string> ;
+	exProp:unit "Idade de uma população por nome, CPF e gênero" ;
+	exProp:idade "30"^^<http://www.w3.org/2000/01/rdf-schema#integer> ;
+	rdfs:label "" .
+
+ex:obj2 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:nome "Anderson"^^<http://www.w3.org/2000/01/rdf-schema#string> ;
+	exProp:cpf "xxx.xxx.xxx"^^<http://www.w3.org/2000/01/rdf-schema#string> ;
+	exProp:sexo "Maculino"^^<http://www.w3.org/2000/01/rdf-schema#string> ;
+	exProp:unit "Idade de uma população por nome, CPF e gênero" ;
+	exProp:idade "60"^^<http://www.w3.org/2000/01/rdf-schema#integer> ;
+	rdfs:label "" .
+
+
+
+
+
+
+
+
+
+
+
+
+
+@base <http://example.cubeviz.org/datacube/>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@rdf: <http://www.w3.org/2000/01/rdf-schema#>.
+@dc: <http://purl.org/dc/elements/1.1/>.
+@skos: <http://www.w3.org/2004/02/skos/core#>.
+@obo: <http://www.w3.org/2002/07/owl#>.
+@sdmx-code: <http://purl.org/linked-data/sdmx/2009/code#>.
+@sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#>.
+@prefix cube: <http://purl.org/linked-data/cube#>.
+@prefix ex: <http://meu.exemplo/datacube/>.
+@exProp: <http://meu.exemplo/datacube/properties/>.
+
+<> a owl:Ontology ;
+	rdfs:label "Example DataCube Knowledge Base" ;
+	dc:description "This knowledgebase contains one Data Structure Definition with one Data Set. This Data Set has a couple of Components and Observations." .
+
+#
+# Data Structure Definitions
+#
+
+ex:dsd a cube:DataStructureDefinition ;
+	rdfs:label "A Data Structure Definition"@en ;
+	rdfs:comment "Defines the structure of a DataSet or slice." ;
+	<www.exemplodeuridenome.com>,
+	<www.exemplodeuridecpf.com>,
+	<www.exemplodeuridegenero.com>,
+	<>,
+	<www.exemplodeurideidade.com>,
+	<http://www.w3.org/2001/XMLSchema#string> .
+
+#
+# Component Specifications
+#
+
+<www.exemplodeuridenome.com> a cube:ComponentSpecification ;
+	rdfs:label "Nome próprio" ;
+	cube:dimension exProp:nome.
+
+<www.exemplodeuridecpf.com> a cube:ComponentSpecification ;
+	rdfs:label "CPF de uma pessoa" ;
+	cube:dimension exProp:cpf.
+
+<www.exemplodeuridegenero.com> a cube:ComponentSpecification ;
+	rdfs:label "Gênero" ;
+	cube:dimension exProp:sexo.
+
+<http://www.w3.org/2001/XMLSchema#float> a cube:ComponentSpecification ;
+	rdfs:label "Component Specification of Unit" ;
+	cube:attribute exProp:unit .
+
+<www.ExemploDeURIDeIdade.com> a cube:ComponentSpecification ;
+	rdfs:label "Idade de uma pessoa" ;
+	cube:measure exProp:idade.
+
+#
+# Data Set
+#
+ex:dataset a cube:DataSet ;
+	rdfs:label "A DataSet"^^<http://www.w3.org/2001/XMLSchema#string> ;
+	rdfs:comment "Represents a collection of observations and conforming to some common dimensional structure." ;
+	cube:structure ex:dsd .
+
+#
+# Dimensions, Unit and Measure
+#
+exProp:nome a cube:DimensionProperty ;
+	rdfs:label "Nome próprio"@en .
+
+exProp:cpf a cube:DimensionProperty ;
+	rdfs:label "CPF de uma pessoa"@en .
+
+exProp:sexo a cube:DimensionProperty ;
+	rdfs:label "Gênero"@en .
+
+exProp: a cube:DimensionProperty ;
+	rdfs:label ""@en .
+
+exProp:unit a cube:AttributeProperty ;
+	rdfs:label "Unit" .
+
+exProp:idadea cube:MeasureProperty ;
+	rdfs:label "Idade de uma pessoa" .
+
+#
+# HIERARCHYS
+#
+
+ex: a ex: ;
+	obo:part_of ex:;
+	rdfs:label ""@en .
+
+#
+# Data Set 1
+#
+
+ex:obj0 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:nome "Gabriel"^^<http://www.w3.org/2000/01/rdf-schema#string> ;
+	exProp:cpf "xxx.xxx.xxx"^^<http://www.w3.org/2000/01/rdf-schema#string> ;
+	exProp:sexo "Masculino"^^<http://www.w3.org/2000/01/rdf-schema#string> ;
+	exProp:unit "Idade de uma população por nome, CPF e gênero" ;
+	exProp:idade "22"^^<http://www.w3.org/2000/01/rdf-schema#integer> ;
+	rdfs:label "" .
+
+ex:obj1 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:nome "Larissa"^^<http://www.w3.org/2000/01/rdf-schema#string> ;
+	exProp:cpf "xxx.xxx.xxx"^^<http://www.w3.org/2000/01/rdf-schema#string> ;
+	exProp:sexo "Feminino"^^<http://www.w3.org/2000/01/rdf-schema#string> ;
+	exProp:unit "Idade de uma população por nome, CPF e gênero" ;
+	exProp:idade "30"^^<http://www.w3.org/2000/01/rdf-schema#integer> ;
+	rdfs:label "" .
+
+ex:obj2 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:nome "Anderson"^^<http://www.w3.org/2000/01/rdf-schema#string> ;
+	exProp:cpf "xxx.xxx.xxx"^^<http://www.w3.org/2000/01/rdf-schema#string> ;
+	exProp:sexo "Maculino"^^<http://www.w3.org/2000/01/rdf-schema#string> ;
+	exProp:unit "Idade de uma população por nome, CPF e gênero" ;
+	exProp:idade "60"^^<http://www.w3.org/2000/01/rdf-schema#integer> ;
+	rdfs:label "" .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

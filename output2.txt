@@ -1,0 +1,736 @@
+@base <http://dadoscontraosagrotoxicos.org/datacube/>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix dc: <http://purl.org/dc/elements/1.1/>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix obo: <http://purl.obolibrary.org/obo#>.
+@prefix sdmx_code: <http://purl.org/linked-data/sdmx/2009/code#>.
+@prefix sdmx_dimension: <http://purl.org/linked-data/sdmx/2009/dimension#>.
+@prefix cube: <http://purl.org/linked-data/cube#>.
+@prefix ex: <http://meu.exemplo/datacube/>.
+@prefix exProp: <http://meu.exemplo/datacube/properties/>.
+@prefix time: <http://www.w3.org/2006/time#>.
+@prefix db: <http://dbpedia.org/resource/>. 
+
+<> a owl:Ontology ;
+	rdfs:label "Example DataCube Knowledge Base" ;
+	dc:description "This knowledgebase contains one Data Structure Definition with one Data Set. This Data Set has a couple of Components and Observations." .
+
+#
+# Data Structure Definitions
+#
+
+ex:dsd a cube:DataStructureDefinition ;
+	rdfs:label "A Data Structure Definition"@en ;
+	rdfs:comment "Defines the structure of a DataSet or slice." ;
+	cube:component 	<http://dadoscontraosagrotoxicos.org/datacube/tipoagrotoxico>,
+	<http://dadoscontraosagrotoxicos.org/datacube/cultura>,
+	<http://dadoscontraosagrotoxicos.org/datacube/classeagrotoxico>,
+	<http://dadoscontraosagrotoxicos.org/datacube/ano>,
+	<http://dadoscontraosagrotoxicos.org/datacube/areacultivada>,
+	<http://dadoscontraosagrotoxicos.org/datacube/quantidadecolhida>,
+	<http://dadoscontraosagrotoxicos.org/datacube/valorcolhido>,
+	<http://dadoscontraosagrotoxicos.org/datacube/quantidadeagrotoxico>,
+	<http://dadoscontraosagrotoxicos.org/datacube/valoragrotoxico>,
+	<http://www.w3.org/2001/XMLSchema#string> .
+
+#
+# Component Specifications
+#
+
+<http://dadoscontraosagrotoxicos.org/datacube/tipoagrotoxico> a cube:ComponentSpecification ;
+	rdfs:label "Tipo de agrotóxico" ;
+	cube:dimension exProp:tipoagrotoxico.
+
+<http://dadoscontraosagrotoxicos.org/datacube/cultura> a cube:ComponentSpecification ;
+	rdfs:label "Cultura" ;
+	cube:dimension exProp:cultura.
+
+<http://dadoscontraosagrotoxicos.org/datacube/classeagrotoxico> a cube:ComponentSpecification ;
+	rdfs:label "Classe de agrotóxico" ;
+	cube:dimension exProp:classeagrotoxico.
+
+<http://dadoscontraosagrotoxicos.org/datacube/ano> a cube:ComponentSpecification ;
+	rdfs:label "Ano" ;
+	cube:dimension exProp:ano.
+
+<http://www.w3.org/2001/XMLSchema#float> a cube:ComponentSpecification ;
+	rdfs:label "Component Specification of Unit" ;
+	cube:attribute exProp:unit .
+
+<http://dadoscontraosagrotoxicos.org/datacube/AreaCultivada> a cube:ComponentSpecification ;
+	rdfs:label "Área Cultivada" ;
+	cube:measure exProp:areacultivada.
+
+<http://dadoscontraosagrotoxicos.org/datacube/QuantidadeColhida> a cube:ComponentSpecification ;
+	rdfs:label "Quantidade de unidades colhidas por cultura" ;
+	cube:measure exProp:quantidadecolhida.
+
+<http://dadoscontraosagrotoxicos.org/datacube/ValorColhido> a cube:ComponentSpecification ;
+	rdfs:label "Valor das unidades colhidas por cultura" ;
+	cube:measure exProp:valorcolhido.
+
+<http://dadoscontraosagrotoxicos.org/datacube/QuantidadeAgrotoxico> a cube:ComponentSpecification ;
+	rdfs:label "Quantidade de unidades de agrotóxico " ;
+	cube:measure exProp:quantidadeagrotoxico.
+
+<http://dadoscontraosagrotoxicos.org/datacube/ValorAgrotoxico> a cube:ComponentSpecification ;
+	rdfs:label "Valor das unidades de agrotoxico" ;
+	cube:measure exProp:valoragrotoxico.
+
+#
+# Data Set
+#
+ex:dataset a cube:DataSet ;
+	rdfs:label "A DataSet"^^<http://www.w3.org/2001/XMLSchema#string> ;
+	rdfs:comment "Represents a collection of observations and conforming to some common dimensional structure." ;
+	cube:structure ex:dsd .
+
+#
+# Dimensions, Unit and Measure
+#
+exProp:tipoagrotoxico a cube:DimensionProperty ;
+	rdfs:label "Tipo de agrotóxico"@en .
+
+exProp:cultura a cube:DimensionProperty ;
+	rdfs:label "Cultura"@en .
+
+exProp:classeagrotoxico a cube:DimensionProperty ;
+	rdfs:label "Classe de agrotóxico"@en .
+
+exProp:ano a cube:DimensionProperty ;
+	rdfs:label "Ano"@en .
+
+exProp:unit a cube:AttributeProperty ;
+	rdfs:label "Unit" .
+
+exProp:areacultivada a cube:MeasureProperty ;
+	rdfs:label "Área Cultivada" .
+
+exProp:quantidadecolhida a cube:MeasureProperty ;
+	rdfs:label "Quantidade de unidades colhidas por cultura" .
+
+exProp:valorcolhido a cube:MeasureProperty ;
+	rdfs:label "Valor das unidades colhidas por cultura" .
+
+exProp:quantidadeagrotoxico a cube:MeasureProperty ;
+	rdfs:label "Quantidade de unidades de agrotóxico " .
+
+exProp:valoragrotoxico a cube:MeasureProperty ;
+	rdfs:label "Valor das unidades de agrotoxico" .
+
+#
+# HIERARCHYS
+#
+
+ex: a ex: ;
+	obo:part_of ex:;
+	rdfs:label ""@en .
+
+#
+# Data Set 1
+#
+
+ex:obj0 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Algodão"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "811.8"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "20071002"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "1.3"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "5711"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "204.1"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj1 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Alho"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "9"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj2 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Amendoim"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "233"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj3 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Arroz Irrigado"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "6213"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj4 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Arroz Sequeiro"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "939"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj5 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Banana"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "148"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj6 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Batata Inglesa"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "339"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj7 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Cacau"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj8 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Café"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "7097"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj9 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Cana-de-açúcar"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "19093"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj10 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Cebola"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "127"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj11 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Citros"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "2808"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj12 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Feijão"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "2547"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj13 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Floricultura"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "2"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj14 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Fruticultura"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "821"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj15 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Fumo"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "148"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj16 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Horticultura"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "677"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj17 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Maçã"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "102"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj18 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Melão"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "1"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj19 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Milho"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "40012"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj20 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Milho safra"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj21 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Milho safrinha"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj22 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Pastagem"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "7338"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj23 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Reflorestamento"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "346"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj24 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Soja"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "73302"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj25 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Tomate Envarado"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "31"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj26 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Tomate Rasteiro"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "23"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj27 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Trigo"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "2811"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj28 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Uva"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "201"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj29 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Áreas não cultivadas"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "336"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj30 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Grãos Armazenados"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj31 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Formigas"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj32 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Tratamento Sementes:"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj33 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "     Algodão"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj34 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "     Arroz"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj35 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "     Feijão"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj36 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "     Milho"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj37 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "     Milho safrinha"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj38 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "     Milho verão"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj39 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "     Soja"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj40 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "     Trigo"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj41 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "     As demais"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
+ex:obj42 a cube:Observation ;
+	cube:dataSet ex:dataset ;
+	exProp:tipoagrotoxico "produto comercial"^^<http://ww.w3.org/2001/XMLSchema#String> ;
+	exProp:cultura "Outras"^^<http://aims.fao.org/aos/agrovoc/cultivation> ;
+	exProp:classeagrotoxico <http://aims.fao.org/aos/agrovoc/herbicide>^^<http://aims.fao.org/aos/agrovoc/pesticide> ;
+	exProp:ano "2000"^^<http://www.w3.org/2006/time#year> ;
+	exProp:unit "Consumo de agrotóxico na produção da cultura em determinado ano" ;
+	exProp:areacultivada "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadecolhida "null"^^<http://dbpedia.org/resource/Real> ;
+	exProp:valorcolhido "null"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:quantidadeagrotoxico "2655"^^<http://dbpedia.org/resource/Hectare> ;
+	exProp:valoragrotoxico "null"^^<http://dbpedia.org/resource/Real> ;
+	rdfs:label "" .
+
