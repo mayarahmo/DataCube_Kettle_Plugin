@@ -1,0 +1,44 @@
+Cultura;Ano;tipoAgrotoxico;valorAgrotoxico;classeAgrotoxico;areaCultivada;quantidadeColhida;valorColhido;quantidadeAgrotoxico
+Algodão;2000;produto comercial;204.148.512,00;http://aims.fao.org/aos/agrovoc/herbicide;811.848;2007102;1.274.249.000,00;5711
+Alho;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;9
+Amendoim;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;233
+Arroz Irrigado;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;6213
+Arroz Sequeiro;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;939
+Banana;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;148
+Batata Inglesa;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;339
+Cacau;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;
+Café;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;7097
+Cana-de-açúcar;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;19093
+Cebola;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;127
+Citros;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;2808
+Feijão;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;2547
+Floricultura;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;2
+Fruticultura;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;821
+Fumo;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;148
+Horticultura;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;677
+Maçã;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;102
+Melão;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;1
+Milho;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;40012
+Milho safra;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;
+Milho safrinha;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;
+Pastagem;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;7338
+Reflorestamento;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;346
+Soja;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;73302
+Tomate Envarado;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;31
+Tomate Rasteiro;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;23
+Trigo;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;2811
+Uva;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;201
+Áreas não cultivadas;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;336
+Grãos Armazenados;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;
+Formigas;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;
+Tratamento Sementes:;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;
+     Algodão;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;
+     Arroz;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;
+     Feijão;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;
+     Milho;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;
+     Milho safrinha;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;
+     Milho verão;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;
+     Soja;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;
+     Trigo;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;
+     As demais;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;
+Outras;2000;produto comercial;;http://aims.fao.org/aos/agrovoc/herbicide;;;;2655
