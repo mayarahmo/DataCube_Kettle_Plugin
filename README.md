@@ -1,5 +1,5 @@
 # Data-Cube-Plugin-Kettle-Transformation
-Datacube Plugin to obtain a RDF Turtle DataCube Ontology Vocabulary file from a CSV (Comma Separated File).
+Datacube Plugin to obtain a RDF Turtle writed in DataCube Ontology Vocabulary from a CSV (Comma Separated File).
 
 DataCube Ontology: https://www.w3.org/TR/vocab-data-cube/
 
