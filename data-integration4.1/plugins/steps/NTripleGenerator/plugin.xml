@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+   id="NTripleGeneratorPlugin"
+   iconfile="icon.png"
+   description="NTriple Generator"
+   tooltip="Gera sentenças RDF no formato N-Triple"
+   category="LinkedDataBR"
+   classname="br.ufrj.ppgi.greco.lodbr.plugin.ntriplegenerator.NTripleGeneratorStepMeta">
+   <libraries>
+		<library name="NTripleGenerator.jar"/>
+		<library name="KettlePluginTools.jar"/>
+	</libraries>
+</plugin>
