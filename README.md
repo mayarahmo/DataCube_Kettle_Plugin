@@ -16,4 +16,4 @@ Download the two java projects inside ./Source Code/Java Source Projects/ into y
 
 A complete tutorial how to execute and edit the source code can be found at https://greco.ppgi.ufrj.br/lodbr.
 
-Output files examples are in this directory. 
+Output example files are in this directory. 
