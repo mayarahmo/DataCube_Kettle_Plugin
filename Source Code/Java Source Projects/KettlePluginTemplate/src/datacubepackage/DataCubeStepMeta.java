@@ -101,7 +101,7 @@ public class DataCubeStepMeta extends BaseStepMeta implements
     private String unity;
     //Table 5
     private DataTable<String> mapTable2;
-	private String vocab4;
+	private static String vocab4;
 	private String vocab3;
 	private String vocab2;
 	private String vocab1;

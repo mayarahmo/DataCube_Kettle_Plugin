@@ -226,7 +226,7 @@
           <MAP__TABLE__DIMENSIONS__FIELD__NAME>tipoAgrotoxico</MAP__TABLE__DIMENSIONS__FIELD__NAME>
           <MAP__TABLE__LABELS__FIELD__NAME>Tipo de agrotóxico</MAP__TABLE__LABELS__FIELD__NAME>
           <MAP__TABLE__URI__FIELD__NAME>http://dadoscontraosagrotoxicos.org/datacube/TipoAgrotoxico</MAP__TABLE__URI__FIELD__NAME>
-          <MAP__TABLE__URI__TYPE__FIELD__NAME>http://ww.w3.org/2001/XMLSchema#String</MAP__TABLE__URI__TYPE__FIELD__NAME>
+          <MAP__TABLE__URI__TYPE__FIELD__NAME></MAP__TABLE__URI__TYPE__FIELD__NAME>
         </Row>
         <Row>
           <MAP__TABLE__DIMENSIONS__FIELD__NAME>Cultura</MAP__TABLE__DIMENSIONS__FIELD__NAME>
@@ -297,7 +297,7 @@
       <java.util.Arrays_-ArrayList>
         <a class="string-array">
           <string>@prefix rdfs:</string>
-          <string>http://www.w3.org/2000/01/rdf-schema#</string>
+          <string>http://www.w3.org/2001/01/rdf-schema#</string>
         </a>
       </java.util.Arrays_-ArrayList>
       <java.util.Arrays_-ArrayList>
@@ -339,13 +339,13 @@
       <java.util.Arrays_-ArrayList>
         <a class="string-array">
           <string>@prefix ex:</string>
-          <string>http://meu.exemplo/datacube/</string>
+          <string>http://dadoscontraosagrotoxicos.org/datacube/</string>
         </a>
       </java.util.Arrays_-ArrayList>
       <java.util.Arrays_-ArrayList>
         <a class="string-array">
           <string>@prefix exProp:</string>
-          <string>http://meu.exemplo/datacube/properties/</string>
+          <string>http://dadoscontraosagrotoxicos.org/properties/</string>
         </a>
       </java.util.Arrays_-ArrayList>
       <java.util.Arrays_-ArrayList>
@@ -358,6 +358,12 @@
         <a class="string-array">
           <string>@prefix db:</string>
           <string>http://dbpedia.org/resource/</string>
+        </a>
+      </java.util.Arrays_-ArrayList>
+      <java.util.Arrays_-ArrayList>
+        <a class="string-array">
+          <string>@prefix</string>
+          <string>http://aims.fao.org/aos/agrovoc/</string>
         </a>
       </java.util.Arrays_-ArrayList>
     </list>
@@ -383,7 +389,7 @@
           <MAP__TABLE__MEASURE__FIELD__NAME>quantidadeColhida</MAP__TABLE__MEASURE__FIELD__NAME>
           <MAP__TABLE__MEASURE__LABEL__FIELD__NAME>Quantidade de unidades colhidas por cultura</MAP__TABLE__MEASURE__LABEL__FIELD__NAME>
           <MAP__TABLE__MEASURE__URI__FIELD__NAME>http://dadoscontraosagrotoxicos.org/datacube/QuantidadeColhida</MAP__TABLE__MEASURE__URI__FIELD__NAME>
-          <MAP__TABLE__MEASURE__URI__TYPE__FIELD__NAME>http://dbpedia.org/resource/Real</MAP__TABLE__MEASURE__URI__TYPE__FIELD__NAME>
+          <MAP__TABLE__MEASURE__URI__TYPE__FIELD__NAME></MAP__TABLE__MEASURE__URI__TYPE__FIELD__NAME>
         </Row>
         <Row>
           <MAP__TABLE__MEASURE__FIELD__NAME>valorColhido</MAP__TABLE__MEASURE__FIELD__NAME>
@@ -412,8 +418,8 @@
   </entry>
 </map></DATA_ROOT_NODE>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>435</xloc>
-      <yloc>15</yloc>
+      <xloc>434</xloc>
+      <yloc>17</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -441,7 +447,7 @@
     <fileNameInField>N</fileNameInField>
     <fileNameField/>
     <file>
-      <name>C:\Users\Mayara.MAYA-PC\OneDrive\Pen drive\Data Cube\file</name>
+      <name>C:\Users\Mayara.MAYA-PC\OneDrive\Pen drive\Data Cube\output4</name>
       <is_command>N</is_command>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>txt</extention>

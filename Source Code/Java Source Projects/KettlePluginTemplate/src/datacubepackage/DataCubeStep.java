@@ -1,5 +1,7 @@
 package datacubepackage;
 
+import java.util.List;
+
 /*
  * Feito por: GABRIEL GONÇALVES DE CASTRO MARQUES
  * ALUNO DO CURSO DE CIÊNCIA DA COMPUTAÇÃO DA UFRJ
@@ -100,9 +102,11 @@ public class DataCubeStep extends BaseStep implements
             prefix = prefix.replace(".  ","."+System.getProperty("line.separator")); 
             
             putOutRow(row, meta, data, prefix);
-
+            
+            String prefix_base = prefix.substring(prefix.indexOf(" ")+1, prefix.indexOf("."+System.getProperty("line.separator")));
+            
             putOutRow(row, meta, data, "");
-            putOutRow(row, meta, data, "<> a owl:Ontology ;");
+            putOutRow(row, meta, data, prefix_base+" a owl:Ontology ;");
             putOutRow(row, meta, data, "	rdfs:label \"Example DataCube Knowledge Base\" ;");
             putOutRow(row, meta, data, "	dc:description \"This knowledgebase contains one Data Structure Definition with one Data Set. This Data Set has a couple of Components and Observations.\" .");
             putOutRow(row, meta, data, "");
@@ -153,6 +157,10 @@ public class DataCubeStep extends BaseStep implements
             	if (dimensionField != null && uriDimensao != null ){
             		putOutRow(row, meta, data, "<"+removeSignals(uriDimensao).toLowerCase()+"> a cube:ComponentSpecification ;");
             		putOutRow(row, meta, data, "	rdfs:label \"" + labelDimensao + "\" ;");
+            		String dimensionURIType = table.getValue(i,DataCubeStepMeta.Field.MAP_TABLE_URI_TYPE_FIELD_NAME.name());
+            		if (!dimensionURIType.isEmpty()){
+            			putOutRow(row, meta, data, "	owl:sameAs "+ "<" + dimensionURIType + "> ;");
+            		}
             		putOutRow(row, meta, data, "	cube:dimension exProp:" + removeSignals(dimensionField).toLowerCase() + ".");
             		putOutRow(row, meta, data, "");
             	}       
@@ -172,6 +180,10 @@ public class DataCubeStep extends BaseStep implements
             	if (uriMedida != null && measureField != null ){
             		putOutRow(row, meta, data, "<"+uriMedida+"> a cube:ComponentSpecification ;");
             		putOutRow(row, meta, data, "	rdfs:label \"" + labelMedida + "\" ;");
+            		String measureURIType = table.getValue(i,DataCubeStepMeta.Field.MAP_TABLE_MEASURE_URI_TYPE_FIELD_NAME.name());
+            		if (!measureURIType.isEmpty()){
+            			putOutRow(row, meta, data, "	owl:sameAs "+ "<" + measureURIType + "> ;");
+            		}
             		putOutRow(row, meta, data, "	cube:measure exProp:" + removeSignals(measureField).toLowerCase() + ".");
             		putOutRow(row, meta, data, "");
             	}       
@@ -265,10 +277,9 @@ public class DataCubeStep extends BaseStep implements
         {
         	String dimensionField = table.getValue(i,DataCubeStepMeta.Field.MAP_TABLE_DIMENSIONS_FIELD_NAME.name());
             String dimension = getInputRowMeta().getString(row, dimensionField, "");
-            String dimensionURIType = table.getValue(i,DataCubeStepMeta.Field.MAP_TABLE_URI_TYPE_FIELD_NAME.name());
             if (!dimension.startsWith("http")){
-            	 putOutRow(row, meta, data, "	exProp:"+removeSignals(dimensionField).toLowerCase()+" " + "\"" + dimension + "\"^^<" + dimensionURIType + "> ;");
-            }else{putOutRow(row, meta, data, "	exProp:"+removeSignals(dimensionField).toLowerCase()+" " + "<" + dimension + ">^^<" + dimensionURIType + "> ;");}
+            	 putOutRow(row, meta, data, "	exProp:"+removeSignals(dimensionField).toLowerCase()+" " + "\"" + dimension + "\" ;");
+            }else{putOutRow(row, meta, data, "	exProp:"+removeSignals(dimensionField).toLowerCase()+" " + "<" + dimension + "> ;");}
         }
         
         putOutRow(row, meta, data, "	exProp:unit \""+ meta.getunity() + "\" ;");
@@ -278,8 +289,7 @@ public class DataCubeStep extends BaseStep implements
         {
         	String measureField = table.getValue(i,DataCubeStepMeta.Field.MAP_TABLE_MEASURE_FIELD_NAME.name());
             String measure = getInputRowMeta().getString(row, measureField, "");
-            String measureURIType = table.getValue(i,DataCubeStepMeta.Field.MAP_TABLE_MEASURE_URI_TYPE_FIELD_NAME.name());
-            putOutRow(row, meta, data, "	exProp:"+removeSignals(measureField).toLowerCase()+" " + "\"" + measure + "\"^^<" + measureURIType + "> ;");
+            putOutRow(row, meta, data, "	exProp:"+removeSignals(measureField).toLowerCase()+" " + "\"" + measure + "\" ;");
         }
         
         putOutRow(row, meta, data, "	rdfs:label \"\" .");
